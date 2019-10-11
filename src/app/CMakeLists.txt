@@ -16,6 +16,8 @@ set(
         ${APP_SRC_DIR}/main.cpp
         ${APP_SRC_DIR}/application/application.cpp
         ${APP_SRC_DIR}/windows/main_window/main_window.cpp
+        ${APP_SRC_DIR}/windows/main_window/navigation/navigation.cpp
+        ${APP_SRC_DIR}/windows/main_window/editor/editor.cpp
 )
 
 set(
@@ -23,6 +25,8 @@ set(
 
         ${APP_SRC_DIR}/application/application.h
         ${APP_SRC_DIR}/windows/main_window/main_window.h
+        ${APP_SRC_DIR}/windows/main_window/navigation/navigation.h
+        ${APP_SRC_DIR}/windows/main_window/editor/editor.h
 )
 
 include_directories(

@@ -19,6 +19,16 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
 //
 
 //  Метод инициализации
-const void MainWindow::init() {
+void MainWindow::init() {
+    _mainLayout = new QVBoxLayout();
+    _navigation = new ui_mainwindow::Navigation();
+    _editor = new ui_mainwindow::Editor();
 
+    _mainLayout->addWidget(_navigation);
+    _mainLayout->addWidget(_editor);
+
+    _centerWidget = new QWidget();
+    _centerWidget->setLayout(_mainLayout);
+
+    setCentralWidget(_centerWidget);
 }
