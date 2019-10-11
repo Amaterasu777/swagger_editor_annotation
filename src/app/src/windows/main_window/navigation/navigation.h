@@ -26,6 +26,12 @@ namespace windows {
             //
             QPushButton* _buttonLoad;
             QPushButton* _buttonSave;
+            QPushButton* _buttonOutput;
+
+            /**
+             * Подключает обработчики
+             */
+            void connectSlots();
         };
     }
 }

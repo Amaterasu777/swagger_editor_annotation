@@ -24,6 +24,9 @@ set(
         APP_H
 
         ${APP_SRC_DIR}/application/application.h
+
+        ${APP_SRC_DIR}/messages/not_implemented.h
+
         ${APP_SRC_DIR}/windows/main_window/main_window.h
         ${APP_SRC_DIR}/windows/main_window/navigation/navigation.h
         ${APP_SRC_DIR}/windows/main_window/editor/editor.h
