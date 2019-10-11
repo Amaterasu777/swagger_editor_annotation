@@ -1,4 +1,5 @@
 #include "main_window.h"
+#include <messages/not_implemented.h>
 
 using namespace windows;
 
@@ -12,6 +13,7 @@ const int start_height = 600; // Стартовая высота
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     resize(start_width, start_height);
     init();
+    connectSlots();
 }
 
 //
@@ -31,4 +33,18 @@ void MainWindow::init() {
     _centerWidget->setLayout(_mainLayout);
 
     setCentralWidget(_centerWidget);
+}
+
+//  Метод подключения слотов
+void MainWindow::connectSlots() {
+    connect(_navigation, SIGNAL(outputClicked()), this, SLOT(onOutputClicked()));
+}
+
+//
+//  Слоты класса
+//
+
+//  Обработка события вывода
+void MainWindow::onOutputClicked() {
+    messages::NotImplemented();
 }

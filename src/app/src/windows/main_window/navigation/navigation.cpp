@@ -39,5 +39,5 @@ Navigation::Navigation(QWidget* parent) : QWidget(parent) {
 void Navigation::connectSlots() {
     connect(_buttonSave, &QPushButton::clicked, this, []() { messages::NotImplemented(); });
     connect(_buttonLoad, &QPushButton::clicked, this, []() { messages::NotImplemented(); });
-    connect(_buttonOutput, &QPushButton::clicked, this, []() { messages::NotImplemented(); });
+    connect(_buttonOutput, &QPushButton::clicked, this, [this]() { emit outputClicked(); });
 }

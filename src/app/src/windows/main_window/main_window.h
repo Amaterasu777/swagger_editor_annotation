@@ -12,6 +12,8 @@ namespace windows {
      * Основное окно приложения
      */
     class MainWindow : public QMainWindow {
+        Q_OBJECT
+
     public:
         explicit MainWindow(QWidget* parent = nullptr);
         ~MainWindow() override = default;
@@ -38,6 +40,16 @@ namespace windows {
          * Метод инициализации GUI
          */
         void init();
+        /**
+         * Подключает слоты
+         */
+        void connectSlots();
+
+    private slots:
+        /**
+         * Обрабатывает событие вывода
+         */
+        void onOutputClicked();
     };
 }
 

@@ -11,6 +11,8 @@ namespace windows {
          * Навигационная панель окна
          */
         class Navigation : public QWidget {
+            Q_OBJECT
+
         public:
             explicit Navigation(QWidget* parent = nullptr);
             ~Navigation() override = default;
@@ -32,6 +34,12 @@ namespace windows {
              * Подключает обработчики
              */
             void connectSlots();
+
+        signals:
+            /**
+             * Сигнал нажатия кнопки вывода
+             */
+            void outputClicked();
         };
     }
 }
