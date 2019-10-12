@@ -7,9 +7,21 @@ using namespace windows::ui_mainwindow;
 //
 
 Editor::Editor(QWidget* parent) : QWidget(parent) {
-
+    init();
 }
 
 //
 //  Методы класса
 //
+
+//  Метод инициализации
+void Editor::init() {
+    _mainLayout = new QHBoxLayout();
+    _treeView = new editor_widgets::TreeView();
+    _workspace = new editor_widgets::Workspace();
+
+    _mainLayout->addWidget(_treeView);
+    _mainLayout->addWidget(_workspace);
+
+    setLayout(_mainLayout);
+}

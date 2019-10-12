@@ -15,9 +15,12 @@ set(
 
         ${APP_SRC_DIR}/main.cpp
         ${APP_SRC_DIR}/application/application.cpp
+
         ${APP_SRC_DIR}/windows/main_window/main_window.cpp
         ${APP_SRC_DIR}/windows/main_window/navigation/navigation.cpp
         ${APP_SRC_DIR}/windows/main_window/editor/editor.cpp
+        ${APP_SRC_DIR}/windows/main_window/editor/tree_view/tree_view.cpp
+        ${APP_SRC_DIR}/windows/main_window/editor/workspace/workspace.cpp
 )
 
 set(
@@ -30,6 +33,8 @@ set(
         ${APP_SRC_DIR}/windows/main_window/main_window.h
         ${APP_SRC_DIR}/windows/main_window/navigation/navigation.h
         ${APP_SRC_DIR}/windows/main_window/editor/editor.h
+        ${APP_SRC_DIR}/windows/main_window/editor/tree_view/tree_view.h
+        ${APP_SRC_DIR}/windows/main_window/editor/workspace/workspace.h
 )
 
 include_directories(
