@@ -20,6 +20,8 @@ set(
         ${APP_SRC_DIR}/windows/main_window/navigation/navigation.cpp
         ${APP_SRC_DIR}/windows/main_window/editor/editor.cpp
         ${APP_SRC_DIR}/windows/main_window/editor/tree_view/tree_view.cpp
+        ${APP_SRC_DIR}/windows/main_window/editor/tree_view/semantic_tree/semantic_tree.cpp
+        ${APP_SRC_DIR}/windows/main_window/editor/tree_view/semantic_tree/tree_node/tree_node.cpp
         ${APP_SRC_DIR}/windows/main_window/editor/workspace/workspace.cpp
 )
 
@@ -34,6 +36,8 @@ set(
         ${APP_SRC_DIR}/windows/main_window/navigation/navigation.h
         ${APP_SRC_DIR}/windows/main_window/editor/editor.h
         ${APP_SRC_DIR}/windows/main_window/editor/tree_view/tree_view.h
+        ${APP_SRC_DIR}/windows/main_window/editor/tree_view/semantic_tree/semantic_tree.h
+        ${APP_SRC_DIR}/windows/main_window/editor/tree_view/semantic_tree/tree_node/tree_node.h
         ${APP_SRC_DIR}/windows/main_window/editor/workspace/workspace.h
 )
 
