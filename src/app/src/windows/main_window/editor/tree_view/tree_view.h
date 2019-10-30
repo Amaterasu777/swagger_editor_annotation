@@ -2,6 +2,7 @@
 #define SWAGGEREDITOR_EDITOR_TREE_VIEW_H
 
 #include <QtWidgets/QTreeView>
+#include "./semantic_tree/semantic_tree.h"
 
 namespace windows {
     namespace ui_mainwindow {
@@ -13,6 +14,12 @@ namespace windows {
             public:
                 explicit TreeView(QWidget* parent = nullptr);
                 ~TreeView() override = default;
+
+            private:
+                /**
+                 * Семантическое дерево
+                 */
+                SemanticTree _tree;
             };
         }
     }

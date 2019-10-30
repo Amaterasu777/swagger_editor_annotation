@@ -8,4 +8,5 @@ using namespace windows::ui_mainwindow::editor_widgets;
 
 TreeView::TreeView(QWidget* parent) : QTreeView(parent) {
     setFixedWidth(200);
+    setModel(&_tree);
 }

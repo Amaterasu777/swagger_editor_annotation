@@ -18,6 +18,40 @@ namespace windows {
                 explicit SemanticTree(QObject* parent = nullptr);
                 ~SemanticTree() override;
 
+                /**
+                 * Возвращает данные узла относительно его ID
+                 * @param index
+                 * @param role
+                 * @return
+                 */
+                QVariant data(const QModelIndex &index, int role) const override;
+                /**
+                 * Возвращает индекс, относительно строки и вложенности
+                 * @param row
+                 * @param column
+                 * @param parent
+                 * @return
+                 */
+                QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+                /**
+                 * Возвращает родительский узел того узла который указали по ID
+                 * @param index
+                 * @return
+                 */
+                QModelIndex parent(const QModelIndex &index) const override;
+                /**
+                 * Кол-во строк
+                 * @param parent
+                 * @return
+                 */
+                int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+                /**
+                 * Кол-во колонок (вложенностей)
+                 * @param parent
+                 * @return
+                 */
+                int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+
             private:
                 /**
                  * Корень дерева
