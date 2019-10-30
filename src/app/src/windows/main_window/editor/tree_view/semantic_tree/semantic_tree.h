@@ -57,6 +57,13 @@ namespace windows {
                  * Корень дерева
                  */
                 TreeNode* _root;
+
+                /**
+                 * Инициализирует семантическую модель
+                 * @param lines
+                 * @param parent
+                 */
+                void setupModelData(const QStringList &lines, TreeNode* parent);
             };
         }
     }

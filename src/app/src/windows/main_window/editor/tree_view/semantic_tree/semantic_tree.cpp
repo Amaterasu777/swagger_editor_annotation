@@ -8,6 +8,9 @@ using namespace windows::ui_mainwindow::editor_widgets;
 
 SemanticTree::SemanticTree(QObject* parent) : QAbstractItemModel(parent) {
     _root = nullptr;
+
+    _root = new TreeNode({tr("Requests")});
+    setupModelData(QString::fromLatin1("SWG_GET\nSWG_POST\n    SWG_PROPERTY\n    SWG_PROPERTY\n    SWG_PROPERTY\nSWG_GET").split('\n'), _root);
 }
 SemanticTree::~SemanticTree() {
     //  Если в корне что-есть, то очистим это
@@ -82,4 +85,49 @@ int SemanticTree::columnCount(const QModelIndex& parent) const {
     if (parent.isValid())
         return static_cast<TreeNode*>(parent.internalPointer())->columnCount();
     return _root->columnCount();
+}
+
+//  Метод, инициализирующий семантическую модель
+void SemanticTree::setupModelData(const QStringList &lines, TreeNode* parent)
+{
+    QVector<TreeNode*> parents;
+    QVector<int> indentations;
+    parents << parent;
+    indentations << 0;
+
+    int number = 0;
+
+    while (number < lines.count()) {
+        int position = 0;
+        while (position < lines[number].length()) {
+            if (lines[number].at(position) != ' ')
+                break;
+            position++;
+        }
+
+        const QString lineData = lines[number].mid(position).trimmed();
+
+        if (!lineData.isEmpty()) {
+            const QStringList columnStrings = lineData.split('\t', QString::SkipEmptyParts);
+            QVector<QVariant> columnData;
+            columnData.reserve(columnStrings.count());
+            for (const QString &columnString : columnStrings)
+                columnData << columnString;
+
+            if (position > indentations.last()) {
+                if (parents.last()->childCount() > 0) {
+                    parents << parents.last()->child(parents.last()->childCount()-1);
+                    indentations << position;
+                }
+            } else {
+                while (position < indentations.last() && parents.count() > 0) {
+                    parents.pop_back();
+                    indentations.pop_back();
+                }
+            }
+
+            parents.last()->appendChild(new TreeNode(columnData, parents.last()));
+        }
+        ++number;
+    }
 }

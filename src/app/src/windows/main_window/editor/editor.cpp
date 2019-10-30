@@ -21,7 +21,7 @@ void Editor::init() {
     _workspace = new editor_widgets::Workspace();
 
     _mainLayout->addWidget(_treeView);
-    _mainLayout->addWidget(_workspace);
+    _mainLayout->addWidget(_workspace, 0, Qt::AlignTop);
 
     setLayout(_mainLayout);
 }
